@@ -5,6 +5,9 @@ const nunjucks = require('nunjucks');
 // require('./models')는 require('./models/index.js')와 같다.
 // 폴더 내의 index.js 파일은 require 시 생략 가능
 const { sequelize } = require('./models');
+const indexRouter = require('./routes');
+const usersRouter = require('./routes/users');
+const commentsRouter = require('./routes/comments');
 
 const app = express();
 app.set('port', process.env.PORT || 3001);
@@ -28,6 +31,10 @@ sequelize.sync({ force: false})
   app.use(express.json());
 
   app.use(express.urlencoded({ extended: false}));
+
+  app.use('/', indexRouter);
+  app.use('/users', usersRouter);
+  app.use('/comments', commentsRouter);
 
   app.use((req, res, next) => {
     const error = new Error(`${req.method} ${req.url} 라우터가 없습니다.`);
