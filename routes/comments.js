@@ -1,5 +1,5 @@
 const express = require('express');
-const { comment } = require('../models');
+const { Comment } = require('../models');
 
 const router = express.Router();
 
@@ -41,4 +41,4 @@ router.route('/:id')
     }
   });
 
-  module.exports = router;
+module.exports = router;
