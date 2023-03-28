@@ -1,3 +1,4 @@
+// express 앱과 MySQL 연결
 const express = require('express');
 const path = require('path');
 const morgan = require('morgan');
