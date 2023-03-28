@@ -1,5 +1,6 @@
 // 시퀄라이즈 사용하기 위해 require
 const Sequelize = require('sequelize');
+// 생성한 모델들을 연결해준다.
 const User = require('./user');
 const Comment = require('./comment');
 
